@@ -28,7 +28,8 @@ public class Homework {
                         .collect(Collectors.groupingBy(Person::getDepartment));
         HashMap<Department, Person> tmp = new HashMap<>();
         for (Department d : map.keySet()) {
-            Optional<Person> optional = map.get(d).stream().max(Comparator.comparing(Person::getAge));
+            Optional<Person> optional = map.get(d).stream()
+                    .max(Comparator.comparing(Person::getAge));
             tmp.put(d, optional.get());
         }
         return tmp;
@@ -50,7 +51,10 @@ public class Homework {
      */
     public static Optional<Department> findTopDepartment(List<Person> persons) {
         Map<Department, Double> map = persons.stream()
-                .collect(Collectors.groupingBy(Person::getDepartment, Collectors.summingDouble(Person::getSalary)));
+                .collect(Collectors.groupingBy(
+                        Person::getDepartment,
+                        Collectors.summingDouble(
+                                Person::getSalary)));
         Optional<Double> max = map
                 .values()
                 .stream()
