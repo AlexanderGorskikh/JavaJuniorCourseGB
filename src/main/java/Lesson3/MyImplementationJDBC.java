@@ -2,11 +2,9 @@ package Lesson3;
 
 import Lesson3.annotations.SQLHandler;
 import Lesson3.annotations.Table;
-import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 
-@Repository
 public class MyImplementationJDBC {
     private Connection connection = null;
     private final SQLHandler sqlHandler = new SQLHandler();
